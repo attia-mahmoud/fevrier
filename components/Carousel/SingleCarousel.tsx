@@ -34,8 +34,8 @@ function SingleCarousel({ setEmbla }: { setEmbla: (args: any) => void }) {
   const { classes } = useStyles();
   const largeScreen = useMediaQuery("(min-width: 768px)");
 
-  const slides = images.map((url) => (
-    <Carousel.Slide key={url}>
+  const slides = images.map((url, i) => (
+    <Carousel.Slide key={i}>
       <Image src={url} alt="image" className={classes.image} />
     </Carousel.Slide>
   ));
