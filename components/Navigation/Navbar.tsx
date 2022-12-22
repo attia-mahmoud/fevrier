@@ -72,7 +72,7 @@ const data = [
   { link: "", label: "Collections" },
 ];
 
-function Navbar({ opened, onClose }: { opened: boolean; onClose: () => {} }) {
+function Navbar({ opened, onClose }: { opened: boolean; onClose: () => void }) {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("Home");
   const { height, width } = useViewportSize();
