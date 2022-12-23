@@ -1,23 +1,24 @@
 import {
   createStyles,
+  Image,
   Container,
   Title,
-  Button,
   Group,
   Text,
+  List,
+  ThemeIcon,
   ActionIcon,
 } from "@mantine/core";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons";
-import { SingleCarousel } from "../Carousel";
-import { useCallback, useState } from "react";
+import { IconCheck, IconChevronLeft, IconChevronRight } from "@tabler/icons";
 import { Embla } from "@mantine/carousel";
-import image1 from "../../public/images/img1.jpg";
-import image2 from "../../public/images/img2.jpg";
-import image3 from "../../public/images/img3.jpg";
-import image4 from "../../public/images/img4.jpg";
-import image5 from "../../public/images/img5.jpg";
-
-const imageSet = [image1, image2, image3, image4, image5];
+import { Button } from "../Button";
+import { SingleCarousel } from "../Carousel";
+import image12 from "../../public/images/img12.jpg";
+import image13 from "../../public/images/img13.jpg";
+import image14 from "../../public/images/img14.jpg";
+import image15 from "../../public/images/img15.jpg";
+import image16 from "../../public/images/img16.jpg";
+import { useCallback, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -26,7 +27,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
     },
-    paddingTop: theme.spacing.xl * 2,
+    paddingTop: theme.spacing.xl * 4,
     paddingBottom: theme.spacing.xl,
     position: "relative",
   },
@@ -54,33 +55,33 @@ const useStyles = createStyles((theme) => ({
 
   title: {
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    fontFamily: "Bodoni Moda, serif",
-    fontSize: 95,
-    lineHeight: 1.2,
+    fontFamily: `sans-serif`,
+    fontSize: 28,
+    lineHeight: 1.3,
     fontWeight: 400,
-    zIndex: 9998,
+    letterSpacing: 3,
+    textTransform: "uppercase",
     [theme.fn.smallerThan("xs")]: {
-      // fontSize: 28,
-      textAlign: "center",
+      fontSize: 28,
     },
+  },
+
+  description: {
+    maxWidth: "25ch",
+    fontWeight: 500,
   },
 
   control: {
     [theme.fn.smallerThan("xs")]: {
       flex: 1,
     },
-    borderColor: "black",
-    borderRadius: "50%",
-    width: "8.5rem",
   },
 
-  button: {
-    border: "1px solid black",
-    borderRadius: "50%",
-    padding: "2.5rem 0.7rem",
-    width: "8.5rem",
-    [theme.fn.smallerThan("sm")]: {
-      margin: "0 auto",
+  image: {
+    flex: 1,
+
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
     },
   },
 
@@ -93,36 +94,11 @@ const useStyles = createStyles((theme) => ({
       display: "none",
     },
   },
-
-  image: {
-    position: "absolute",
-    zIndex: -1,
-    right: 0,
-    flex: 1,
-    height: "30rem",
-    width: "35rem",
-    objectFit: "cover",
-    objectPosition: "50% 10%",
-    [theme.fn.smallerThan("md")]: {
-      display: "none",
-    },
-  },
-
-  subtitle: {
-    textTransform: "uppercase",
-  },
-
-  line: {
-    width: "8rem",
-    height: "3px",
-    marginInline: "1rem",
-    marginBlock: "3px",
-    backgroundColor: theme.colors.gray[7],
-    display: "inline-block",
-  },
 }));
 
-function Hero() {
+const imageSet = [image12, image13, image14, image15, image16];
+
+function Collection() {
   const { classes } = useStyles();
   const [embla, setEmbla] = useState<Embla | null>(null);
   const [slide, setSlide] = useState(1);
@@ -141,20 +117,16 @@ function Hero() {
       <Container>
         <div className={classes.inner}>
           <div className={classes.content}>
-            <Text mt="md" weight={700} className={classes.subtitle} size="sm">
-              View the runway <div className={classes.line}></div>
+            <Title className={classes.title}>
+              Now Available: the fall-winter collection 2022
+            </Title>
+            <Text mt="md" className={classes.description}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
+              officia ea aliquid culpa a maxime.
             </Text>
-            <Title className={classes.title}>Spring 2022</Title>
 
-            <Group mt={30} className={classes.button} position="center">
-              <Button
-                variant="default"
-                radius="xl"
-                size="md"
-                className={classes.control}
-              >
-                Shop Now &gt;
-              </Button>
+            <Group mt={30}>
+              <Button size="lg" />
             </Group>
 
             <Group className={classes.controls}>
@@ -167,11 +139,11 @@ function Hero() {
               </ActionIcon>
             </Group>
           </div>
-          <SingleCarousel setEmbla={setEmbla} images={imageSet} />
+          <SingleCarousel images={imageSet} setEmbla={setEmbla} />
         </div>
       </Container>
     </div>
   );
 }
 
-export { Hero };
+export { Collection };
