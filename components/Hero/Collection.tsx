@@ -27,7 +27,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("sm")]: {
       flexDirection: "column",
     },
-    paddingTop: theme.spacing.xl * 4,
+    paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl,
     position: "relative",
   },
@@ -47,9 +47,10 @@ const useStyles = createStyles((theme) => ({
       marginBottom: 48,
       textAlign: "center",
       display: "flex",
-      justifyContent: "space-between",
+      justifyContent: "center",
+      alignItems: "center",
       flexDirection: "column",
-      gap: "2rem",
+      gap: "1rem",
     },
   },
 
@@ -63,12 +64,17 @@ const useStyles = createStyles((theme) => ({
     textTransform: "uppercase",
     [theme.fn.smallerThan("xs")]: {
       fontSize: 28,
+      textAlign: "center",
     },
   },
 
   description: {
     maxWidth: "25ch",
     fontWeight: 500,
+    [theme.fn.smallerThan("md")]: {
+      maxWidth: "50ch",
+      textAlign: "center",
+    },
   },
 
   control: {

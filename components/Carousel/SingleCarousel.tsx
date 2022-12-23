@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => ({
   image: {
     height: MAX_HEIGHT,
     objectFit: "cover",
-    objectPosition: "80px -80px",
+    objectPosition: "0px -80px",
   },
 }));
 

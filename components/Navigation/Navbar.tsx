@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   ActionIcon,
+  CloseButton,
   createStyles,
   Navbar as BaseComponent,
   Text,
@@ -12,9 +13,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
   return {
     wrapper: {
       zIndex: 9999,
-      position: "absolute",
+      position: "fixed",
       top: 0,
-      height: "100vh",
+      height: "100%",
       transform: "translateX(-150%)",
       transition: "all 350ms ease-in-out",
     },
@@ -33,7 +34,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 700,
-      fontFamily: "Bodoni Moda",
+      fontFamily: "Bodoni Moda, serif",
       "&:hover": {
         backgroundColor:
           theme.colorScheme === "dark"
@@ -60,6 +61,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     closeIcon: {
       position: "absolute",
       right: "2rem",
+      top: "2rem",
     },
   };
 });
@@ -100,11 +102,13 @@ function Navbar({ opened, onClose }: { opened: boolean; onClose: () => void }) {
       p="md"
       className={cx(classes.wrapper, opened && classes.open)}
     >
-      <ActionIcon onClick={onClose} className={classes.closeIcon}>
-        <Text size={32} mt="3rem">
-          X
-        </Text>
-      </ActionIcon>
+      <CloseButton
+        className={classes.closeIcon}
+        onClick={onClose}
+        title="Close popover"
+        size="xl"
+        iconSize={35}
+      />
       <BaseComponent.Section grow mt={"20%"}>
         {links}
       </BaseComponent.Section>

@@ -8,11 +8,12 @@ import {
   Collection,
   Footer,
 } from "../components";
-import image6 from "../public/images/img6.jpg";
+import image4 from "../public/images/img4.jpg";
 import image7 from "../public/images/img7.jpg";
 import image8 from "../public/images/img8.jpg";
-import image9 from "../public/images/img9.jpg";
-import image10 from "../public/images/img10.jpg";
+import image3 from "../public/images/img3.jpg";
+import image5 from "../public/images/img5.jpg";
+import image14 from "../public/images/img14.jpg";
 import image17 from "../public/images/img17.jpg";
 import image18 from "../public/images/img18.jpg";
 import image19 from "../public/images/img19.jpg";
@@ -20,8 +21,8 @@ import image20 from "../public/images/img20.jpg";
 
 const inter = Bodoni_Moda({ subsets: ["latin"] });
 
-const imageSet = [image6, image7, image8, image9, image10];
-const imageSet2 = [image17, image18, image19, image20];
+const imageSet = [image4, image7, image8, image3, image5];
+const imageSet2 = [image17, image18, image19, image20, image14];
 
 export default function Home() {
   return (
